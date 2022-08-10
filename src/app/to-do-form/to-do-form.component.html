@@ -1,0 +1,28 @@
+<form [formGroup]="todoForm">
+    <div class="form-group">
+        <label for="taskTitle">Task Title</label>
+        <input type="email" class="form-control" id="taskTitle" formControlName="taskTitle">
+    </div>
+
+    <div class="form-group">
+        <label for="taskDesc">Task description</label>
+        <textarea class="form-control" id="taskDesc" rows="3" formControlName="taskDesc"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="taskPriorty">Example multiple select</label>
+        <select class="form-select" id="taskPriorty" formControlName="taskPriorty">
+            <option *ngFor="let priorties of priorty" value={{priorties.name}}>{{priorties.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group p-2">
+        <label for="file">Upload Image</label>
+        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+    </div>
+
+    <div class="form-group text-center">
+        <button type="button" class="btn btn-success" (click)="submitForm()">Submit</button>
+        <button type="button" class="btn btn-danger ms-2" [routerLink]="['']">Cancel</button>
+    </div>
+</form>
